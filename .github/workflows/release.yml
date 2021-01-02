@@ -19,7 +19,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
       - name: Build the Project
-        run: npm run build
+        run: npm run build && npm run bundle
       - name: Perform SonarQube Scan
         run: npm run sonar
         env:
