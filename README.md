@@ -1,5 +1,5 @@
 # AtlanticApps Marco-Client
-[![NPM version](https://img.shields.io/npm/v/@atlanticapps/rt-client.svg)](https://www.npmjs.com/package/@atlanticapps/rt-client)
+[![NPM version](https://img.shields.io/npm/v/@atlanticapps/marco-client.svg)](https://www.npmjs.com/package/@atlanticapps/marco-client)
 
 The Marco-Client (RtCl) library facilitates development of real-time applications connecting to RTEngine backed server systems. This allows client applications to replicate a collection of elements in real-time by retrieveing light delta updates. The library supports direct event listening, snapshot mode as well as custom delta update scenarios: 
 
@@ -14,13 +14,13 @@ We recommend installing the library using either `npm`, `yarn`. A `<script>` tag
 #### NPM
 
 ```
-npm install --save @atlanticapps/rt-client
+npm install --save @atlanticapps/marco-client
 ```
 
 #### Yarn
 
 ```
-yarn add @atlanticapps/rt-client
+yarn add @atlanticapps/marco-client
 ```
 
 #### Alternative: Script Import
