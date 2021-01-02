@@ -22,3 +22,8 @@ jobs:
         run: npm ci
       - name: Build the Project
         run: npm run build
+      - name: Perform SonarQube Scan
+        run: npm run sonar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_LOGIN: ${{ secrets.SONAR_LOGIN }}
