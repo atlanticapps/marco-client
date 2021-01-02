@@ -75,3 +75,5 @@ dll/
 # Sonar #
 .sonar
 .scannerwork
+
+lib
