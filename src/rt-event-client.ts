@@ -3,7 +3,6 @@ import { RTEventClientBackend } from './backend/rt-event-client-backend';
 import { RTClientArrayManager } from './manager';
 import { RTClientSnapshotManager } from './manager/rt-client-snapshot-manager';
 import { RTEvent } from './rt-event';
-import { EventSourceRTEventClientBackend} from './backend/sse/event-source-rt-event-client-backend';
 
 export type RtEventClientOptions<T> = RTEventClientOptionalParams<T>;
 export type RtEventClientSettings<T> = RTEventClientOptionalParams<T>;
@@ -30,7 +29,7 @@ export interface RTEventClientOptions<T> {
 }
 
 export class RTEventClient {
-	constructor(protected backend: RTEventClientBackend = new EventSourceRTEventClientBackend()) {
+	constructor(protected backend: RTEventClientBackend) {
 	}
 
 	listen<T>(url: string, options: {
