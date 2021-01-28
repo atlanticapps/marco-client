@@ -8,9 +8,6 @@ import { EventSourceRTEventClientBackend} from './backend/sse/event-source-rt-ev
 export type RtEventClientOptions<T> = RTEventClientOptionalParams<T>;
 export type RtEventClientSettings<T> = RTEventClientOptionalParams<T>;
 
-export class WrappedBacked extends EventSourceRTEventClientBackend {
-
-}
 
 export interface RTEventClientOptionalParams<T> {
 	dataSelector?: (input: any) => T
@@ -33,7 +30,7 @@ export interface RTEventClientOptions<T> {
 }
 
 export class RTEventClient {
-	constructor(protected backend: RTEventClientBackend) {
+	constructor(protected backend: RTEventClientBackend = new EventSourceRTEventClientBackend()) {
 	}
 
 	listen<T>(url: string, options: {
