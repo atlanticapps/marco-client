@@ -1,8 +1,8 @@
 import { BehaviorSubject, Observer, Subscription } from 'rxjs';
 import { RTEvent } from '../rt-event';
-import { RTClientSnapshotManager } from './rt-client-snapshot-manager';
+import { SnapshotManager } from './snapshot-manager';
 
-export class RTClientArrayManager<T> extends RTClientSnapshotManager<T> {
+export class ArrayManager<T> extends SnapshotManager<T> {
 	protected _value: T[] = [];
 	protected _valueChanges = new BehaviorSubject<T[]>(this._value);
 

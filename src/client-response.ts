@@ -1,11 +1,11 @@
 import { RTEvent } from './rt-event';
 
-export interface RTEventResponse<T> {
+export interface EventResponse<T> {
 	data: RTEvent<T>
 }
 
-export interface RTEventErrorResponse {
+export interface ErrorResponse {
 	error: Error
 }
 
-export type RtEventClientResponse<T> = RTEventResponse<T> | RTEventErrorResponse
+export type Response<T> = EventResponse<T> | ErrorResponse

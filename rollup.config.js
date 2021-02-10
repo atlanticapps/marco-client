@@ -1,45 +1,44 @@
-import commonjs from 'rollup-plugin-commonjs';
-import typescript2 from 'rollup-plugin-typescript2';
-import resolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
-import minify from 'rollup-plugin-babel-minify';
 import pkg from './package.json';
+import {terser} from "rollup-plugin-terser";
+import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
 
-const extensions = [
-    '.js', '.jsx', '.ts', '.tsx',
-];
+const extensions = ['.js', '.ts'];
 
-const name = 'RTEventClient';
+const name = 'marco';
 
 export default {
     input: './src/index.ts',
-// Specify here external modules which you don't want to include in your bundle (for instance: 'lodash', 'moment' etc.)
-// https://rollupjs.org/guide/en#external-e-external
     external: [
-        'rxjs'
+        'rxjs', 'rxjs/operators'
     ],
     plugins: [
-// Allows node_modules resolution
-        resolve({jsnext: true, extensions}),
-        commonjs({include: 'node_modules/**'}),
-        typescript2(),
-        babel({extensions, include: ['src/**/*']}),
-        minify()
+        resolve({extensions}),
+        babel({
+            extensions,
+            babelHelpers: 'bundled',
+            include: ['src/**/*'],
+        }),
+        terser()
     ],
-
     output: [{
         file: pkg.main,
         format: 'cjs',
     }, {
-        file: pkg.module,
-        format: 'es',
-    }, {
         file: pkg.browser,
-        format: 'umd',
+        format: 'iife',
+        globals: {
+            rxjs: 'rxjs',
+            'rxjs/operators': 'rxjs.operators'
+        },
         name
     }, {
         file: pkg.umd,
         format: 'umd',
+        globals: {
+            rxjs: 'rxjs',
+            'rxjs/operators': 'rxjs.operators'
+        },
         name,
     }],
 };

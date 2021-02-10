@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
-import { RtEventClientResponse } from '../client-response';
+import { Response } from '../client-response';
 import { RTEvent } from '../rt-event';
 
-export interface RTEventClientBackend {
+export interface Backend {
 	listen<T>(url: string, options?: {
 		headers?: string | {
 			[name: string]: string | string[];
@@ -15,12 +15,12 @@ export interface RTEventClientBackend {
 			[name: string]: string | string[];
 		},
 		observe?: 'response'
-	}): Observable<RtEventClientResponse<T>>
+	}): Observable<Response<T>>
 
 	listen<T>(url: string, options?: {
 		headers?: string | {
 			[name: string]: string | string[];
 		},
 		observe?: 'events' | 'response'
-	}): Observable<RTEvent<T> | RtEventClientResponse<T>>
+	}): Observable<RTEvent<T> | Response<T>>
 }

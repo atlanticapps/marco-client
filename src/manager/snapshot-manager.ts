@@ -2,20 +2,20 @@ import { Observable, Observer, Subscription } from 'rxjs';
 import { first, switchMap, tap } from 'rxjs/operators';
 import { RTEvent } from '../rt-event';
 
-export interface RTClientSnapshotManagerOptions<T> {
+export interface SnapshotManagerOptions<T> {
 	keySelector: (T) => any,
 	dataSelector?: (any) => T,
 	initialValueSupplier?: Observable<T[]>,
 	comparator?: (lhs: T, rhs: T) => number
 }
 
-export abstract class RTClientSnapshotManager<T> {
+export abstract class SnapshotManager<T> {
 	protected keySelector: (T) => any;
 	protected dataSelector: (any) => T;
 	protected compareFn: ((a: T, b: T) => number) | null;
 	private sub;
 
-	constructor(private options: RTClientSnapshotManagerOptions<T>) {
+	constructor(private options: SnapshotManagerOptions<T>) {
 		if ('comparator' in options) {
 			this.compareFn = options.comparator;
 		}

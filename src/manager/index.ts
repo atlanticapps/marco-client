@@ -1,2 +1,2 @@
-export * from './rt-client-snapshot-manager';
-export * from './r-t-client-array-manager';
+export * from './snapshot-manager';
+export * from './array-manager';
