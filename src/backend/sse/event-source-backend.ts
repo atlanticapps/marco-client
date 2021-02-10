@@ -1,21 +1,21 @@
 import { Observable, Observer } from 'rxjs';
-import { RtEventClientResponse } from '../../client-response';
+import { Response } from '../../client-response';
 import { RTEvent } from '../../rt-event';
-import { RTEventClientBackend } from '../rt-event-client-backend';
+import { Backend } from '../backend';
 import { EventSourceEvent } from './event-source-event';
 import { SSEvent } from './ssevent';
 
 declare var EventSource: any;
 
-export class EventSourceRTEventClientBackend implements RTEventClientBackend {
+export class EventSourceBackend implements Backend {
   listen<T>(url: string,
             options?: { headers?: string | { [p: string]: string | string[] }; observe?: 'events' }): Observable<RTEvent<T>>;
   listen<T>(url: string,
-            options?: { headers?: string | { [p: string]: string | string[] }; observe?: 'response' }): Observable<RtEventClientResponse<T>>;
+            options?: { headers?: string | { [p: string]: string | string[] }; observe?: 'response' }): Observable<Response<T>>;
   listen(url: string,
          options?: { headers?: string | { [p: string]: string | string[] }; observe?: 'events' } | { headers?: string | { [p: string]: string | string[] }; observe?: 'response' } | { headers?: string | { [p: string]: string | string[] }; observe?: 'events' | 'response' }): any;
   listen<T>(url: string,
-            options?: { headers?: string | { [p: string]: string | string[] }; observe?: 'events' | 'response' }): Observable<RTEvent<T> | RtEventClientResponse<T>> {
+            options?: { headers?: string | { [p: string]: string | string[] }; observe?: 'events' | 'response' }): Observable<RTEvent<T> | Response<T>> {
     options = Object.assign({}, {headers: {}, observe: 'events'}, options);
     let _propagateEvent = (observer, event) => {
       let body: any;
