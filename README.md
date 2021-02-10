@@ -5,7 +5,7 @@ The `marco` Client (MaCl) library facilitates development of real-time applicati
 
 - **Event listening** simply forwards the delta events in their raw form to the client application
 - **Snapshot mode** forwards the complete updated collection to the client application on each update
-  - The library also supports custom snapshot managers, which can be tailored to your application needs.
+- The library also supports custom snapshot managers, which can be tailored to your application needs.
 
 ### Install `marco` Client 
 
