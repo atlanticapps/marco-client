@@ -9,7 +9,7 @@ The `marco` Client (MaCl) library facilitates development of real-time applicati
 
 ### Install `marco` Client 
 
-We recommend installing the library using either `npm`, `yarn`. A `<script>` tag can also be used if your project does not make use of any package manager.
+We recommend installing the library using either `npm` or `yarn`. A `<script>` tag can also be used if your project does not make use of any package manager.
 
 #### NPM
 
