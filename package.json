@@ -1,6 +1,6 @@
 {
   "name": "@atlanticapps/marco-client",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "main": "./dist/index.js",
   "umd": "./dist/index.umd.js",
@@ -19,7 +19,7 @@
     "test": "jasmine",
     "build": "npm run build:types && npm run bundle",
     "bundle": "rollup -c",
-    "build:types": "tsc --emitDeclarationOnly --out ./dist/index.js",
+    "build:types": "tsc --emitDeclarationOnly --outDir ./dist/",
     "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
     "sonar": "node sonar.js"
   },
