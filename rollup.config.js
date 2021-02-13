@@ -26,7 +26,7 @@ export default {
         format: 'cjs',
     }, {
         file: pkg.browser,
-        format: 'iife',
+        format: 'umd',
         globals: {
             rxjs: 'rxjs',
             'rxjs/operators': 'rxjs.operators'
