@@ -1,6 +1,6 @@
 {
   "name": "@atlanticapps/marco-client",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "",
   "main": "./dist/index.umd.js",
   "umd": "./dist/index.umd.js",
